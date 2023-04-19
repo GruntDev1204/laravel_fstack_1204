@@ -1,0 +1,34 @@
+  *:focus {
+    outline: #04aa6d solid 2px;
+
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+
+  .close-button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+
+  .logout_btn {
+    border: none;
+    background-color: transparent;
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #282a35;
+  }
+
+  .logout_btn:hover {
+    color: #059963;
+  }
+
+  .grecaptcha-badge {
+      bottom: 100px !important;
+      z-index: 1001;
+  }

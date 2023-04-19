@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow");
+
+body {
+    font: 14px/1.5 "PT Sans Narrow", sans-serif;
+    background: yellow;
+    color: #626668;
+    background-size: 100vh;
+    max-width: 100vh;
+    max-height: 100vh;
+}
+
+
+
+/*ul.solarsystem:hover li {-webkit-animation-play-state: paused;} */
