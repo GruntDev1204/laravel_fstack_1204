@@ -1,24 +1,24 @@
 new Vue({
     el: '#giaohang',
     data: {
-        list: [],
         list2:[],
     },
     created() {
-        this.loadTada();
         this.loadTada2();
     },
     methods: {
-        loadTada() {
-            axios
-                .get('/dat-hang-data')
-                .then((res) => {
-                    if(res.data.status == 1){
-                        this.list = res.data.dataddhU;
-                    }else if (res.data.status == 2){
-                    this.list = res.data.dataddhA;
-                    }
-                });
+
+        formatDate(datetime) {
+            const input = datetime;
+            const dateObj = new Date(input);
+            const year = dateObj.getFullYear();
+            const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+            const date = dateObj.getDate().toString().padStart(2, '0');
+            const hours = dateObj.getHours().toString().padStart(2, '0');
+            const minutes = dateObj.getMinutes().toString().padStart(2, '0');
+            const seconds = dateObj.getSeconds().toString().padStart(2, '0');
+            const result = `${date}/${month}/${year} - ${hours}:${minutes}:${seconds}`;
+            return result;
         },
         formatNumber(number) {
             return new Intl.NumberFormat('vi-VI', {
@@ -37,35 +37,7 @@ new Vue({
                     }
                 });
         },
-        // updateRow(row) {
-        //     axios
-        //         .post('/add-to-cart-update', row)
-        //         .then((res) => {
-        //             if (res.status == 1) {
-        //                 this.loadCart();
-        //             }else if(res.status == 2){
-        //                 this.loadCart();
-        //             }
-        //         });
-        // },
-        // deleteRow(row) {
-        //     axios
-        //         .post('/remove-cart', row)
-        //         .then((res) => {
-        //             toastr.info("Đã xóa sản phẩm trong giỏ!");
-        //             this.loadCart();
-        //         });
-        // },
-        // totalMoney() {
-        //     var total = 0;
-        //     this.listCart.forEach((value, key) => {
-        //         total += value.don_gia * value.so_luong
-        //     });
-        //     return total;
-        // },
-        // store(){
 
-        // }
 
     },
 });

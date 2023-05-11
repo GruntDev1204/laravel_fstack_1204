@@ -2,10 +2,9 @@
 @section('content')
 <div id="giaohang">
     @if( Auth::guard('chap')->check())
-@include('home_page.pages.cart.tablechitietdonhang')
 @include('home_page.pages.cart.tabledonhang')
+
 @elseif( Auth::guard('agent')->check())
-@include('home_page.pages.cart.tablechitietdonhang')
 @include('home_page.pages.cart.tabledonhang')
 @else
 @include('home_page.ERR')

@@ -17,7 +17,7 @@
 
                 <div class="col-md-8">
                     <div class="cart-box mt-all-30">
-                        <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
+                        <ul class="d-flex justify-content-lg-end justify-content-center align-items-center" >
                             @if (Auth::guard('agent')->check())
                                @include('home_page.shares.topHome.Agentinfo')
                             @elseif (Auth::guard('chap')->check())
@@ -43,3 +43,5 @@
     <!-- Header Bottom Start Here -->
   @include('home_page.shares.topHome.menuChaCon')
 </header>
+@section('js')
+@endsection

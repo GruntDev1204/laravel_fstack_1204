@@ -1,16 +1,40 @@
 <li><a href="/cart"><i class="lnr lnr-cart"></i><span class="my-cart"><span
-                class="total-pro">2</span><span>Your Cart</span></span></a>
-    <ul class="ht-dropdown cart-box-width" id="cartTop">
-        <li>
-            <div class="cart-footer">
-                <div class="cart-actions text-center">
-                    <a class="cart-checkout" href="/dat-hang">xem</a>
-                </div>
-            </div>
-            <!-- Cart Footer Inner End -->
-        </li>
-    </ul>
+    class="total-pro">@{{countAgent}}</span><span>Your Cart</span></span></a>
+<ul class="ht-dropdown cart-box-width" id="cartTop">
+<li id="cartTop">
+<!-- Cart Box Start -->
+<template v-for="(v,k) in chitietCart">
+    <div class="single-cart-box">
+        <div class="cart-img">
+            <a v-bind:href="'/san-pham/' + v.san_pham_id"><img v-bind:src="v.anh_dai_dien"
+                    alt="cart-image"></a>
+            <span class="pro-quantity">@{{v.so_luong}}</span>
+        </div>
+        <div class="cart-content">
+            <h6><a href="product.html">@{{v.ten_san_pham}} </a></h6>
+            <span class="cart-price">@{{formatNumber(v.don_gia)}}</span>
+            {{-- <span>Size: S</span>
+            <span>Color: Yellow</span> --}}
+        </div>
+    </div>
+</template>
+
+    <!-- Cart Box End -->
+    <!-- Cart Footer Inner Start -->
+    <div class="cart-footer">
+        <ul class="price-content">
+            <li>Total <span>@{{ formatNumber(totalMoney()) }}</span></li>
+        </ul>
+        <div class="cart-actions text-center">
+            <a class="cart-checkout" href="/dat-hang">Checkout</a>
+        </div>
+    </div>
+
+<!-- Cart Footer Inner End -->
 </li>
+</ul>
+</li>
+
 <div class="dropdown ml-4">
     <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><i
             class="fas fa-circle-user"></i>
@@ -99,3 +123,4 @@
         <span class="fa-solid fa-right-from-bracket fa-sm"></span> Đăng Xuất
     </a>
 </li>
+

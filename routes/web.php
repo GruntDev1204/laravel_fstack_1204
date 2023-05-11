@@ -38,6 +38,9 @@ Route::group(['prefix'=>'/client'] ,function(){
     Route::post('/your-cart-create', [\App\Http\Controllers\DonHangController::class, 'store']);
     Route::get('/your-cart', [\App\Http\Controllers\DonHangController::class, 'view']);
     Route::get('/dat-hang', [\App\Http\Controllers\DonHangController::class, 'dondathangView']);
+    Route::get('/dat-hang/chi-tiet/{id}', [\App\Http\Controllers\ChiTietDonHangController::class, 'showChitiet']);
+
+
     Route::get('/dat-hang-data', [\App\Http\Controllers\DonHangController::class, 'donhangManager']);
 
 

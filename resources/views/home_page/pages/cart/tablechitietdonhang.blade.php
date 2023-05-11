@@ -2,8 +2,7 @@
     <table>
         <thead>
             <tr>
-                <th class="product-thumbnail"># </th>
-                <th class="product-thumbnail">Ngày Đặt </th>
+                <th class="product-thumbnail">Mã đơn</th>
                 <th class="product-name">Sản Phẩm</th>
                 <th class="product-price">Gía Bán</th>
                 <th class="product-quantity">Số lượng</th>
@@ -11,17 +10,16 @@
             </tr>
         </thead>
         <tbody>
-            <template v-for="(value, key) in list">
+            @foreach($dataDonHang as $donHang)
                 <tr>
-                    <td class="product-name">@{{ key+1 }}</a></td>
-                    <td class="product-name">@{{ value.created_at }}</a></td>
-                    <td class="product-name">@{{ value.ten_san_pham }}</a></td>
+                    <td class="product-name">{{$donHang->don_hang_id  }}</a></td>
+                    <td class="product-name">{{ $donHang->ten_san_pham  }}</a></td>
                     <td class="product-price"><span
-                            class="amount">@{{ formatNumber(value.don_gia) }}</span></td>
-                    <td class="product-quantity">@{{value.so_luong}}</td>
-                    <td class="product-subtotal">@{{ formatNumber(value.don_gia * value.so_luong) }}</td>
+                            class="amount">{{ $donHang->don_gia }}</span></td>
+                    <td class="product-quantity">{{ $donHang->so_luong }}</td>
+                    <td class="product-subtotal">{{  $donHang->so_luong*$donHang->don_gia  }}</td>
                 </tr>
-            </template>
+            @endforeach
         </tbody>
     </table>
 </div>

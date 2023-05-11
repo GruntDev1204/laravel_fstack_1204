@@ -53,7 +53,7 @@
                 </tbody>
             </table>
             <div class="wc-proceed-to-checkout">
-                <a href="/your-cart"><i class="fa-solid fa-cart-shopping"></i> Đặt Hàng</a>
+                <a v-on:click="createDonHang()"><i class="fa-solid fa-cart-shopping"></i> Đặt Hàng</a>
             </div>
         </div>
     </div>

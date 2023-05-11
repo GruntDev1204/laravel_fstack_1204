@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
     @toastr_css
 </head>
-<body>
+<body >
     <div class="wrapper">
         <div class="popup_banner">
             <span class="popup_off_banner">×</span>
@@ -16,9 +16,11 @@
                 <img src="/assets_homepage/img/banner/pop-banner.jpg" alt="">
             </div>
         </div>
+        <div id="mobie">
+            @include('home_page.shares.top')
+            @yield('content')
+        </div>
 
-        @include('home_page.shares.top')
-        @yield('content')
         @include('home_page.shares.footer')
         <div class="main-product-thumbnail quick-thumb-content">
             <div class="container">
@@ -120,6 +122,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/ProjectMarts/Homee/loginAction.js"></script>
     <script src="/ProjectMarts/Homee/addtocart.js"></script>
+    <script src="/ProjectMarts/Homee/chaydonhang.js"></script>
+
 
 </body>
 

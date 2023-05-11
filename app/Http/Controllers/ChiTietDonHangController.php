@@ -16,6 +16,8 @@ class ChiTietDonHangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function index()
     {
         return view('home_page.pages.cart.index');
@@ -168,9 +170,11 @@ class ChiTietDonHangController extends Controller
                                   ->where('is_cart', 1)
                                   ->select('chi_tiet_don_hangs.*', 'san_phams.anh_dai_dien')
                                   ->get();
+            $countAgent = count( $dataagent);
             return response()->json([
                 'status' => 1,
-                'dataDaiLy' => $dataagent
+                'dataDaiLy' => $dataagent,
+                'countAgent' => $countAgent
             ]);
         }elseif($chap){
             $datachap = ChiTietDonHang::join('san_phams', 'chi_tiet_don_hangs.san_pham_id', 'san_phams.id')
@@ -186,9 +190,10 @@ class ChiTietDonHangController extends Controller
         }
     }
 
-    public function create()
-    {
-        //
+    public function showChitiet($id)
+    {    $agent = Auth::guard('agent')->user();
+         $dataDonHang = ChiTietDonHang::where('don_hang_id', $id)->where('agent_id' ,$agent->id )->get();
+         return view('home_page.pages.cart.xemchitietdomhang' ,compact('dataDonHang'));
     }
 
     /**
@@ -202,16 +207,6 @@ class ChiTietDonHangController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ChiTietDonHang  $chiTietDonHang
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ChiTietDonHang $chiTietDonHang)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

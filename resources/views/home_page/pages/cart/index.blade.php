@@ -1,6 +1,6 @@
 @extends('home_page.master')
 @section('content')
-    <div id="app" class="cart-main-area ptb-100 ptb-sm-60">
+    <div class="cart-main-area ptb-100 ptb-sm-60">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
@@ -18,6 +18,4 @@
         </div>
     </div>
 @endsection
-@section('js')
-    <script src="/ProjectMarts/Homee/chitietgiohang.js"></script>
-@endsection
+
